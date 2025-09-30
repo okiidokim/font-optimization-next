@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-// import localFont from 'next/font/local';
+import localFont from 'next/font/local';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,22 +13,56 @@ export const metadata: Metadata = {
 //   variable: '--font-pretendard',
 // });
 
-// const pretendard = localFont({
-//   src: [
-//     {
-//       path: '../../public/fonts/Pretendard-Black.ttf',
-//       weight: '700',
-//       style: 'normal',
-//     },
-//     {
-//       path: '../../public/fonts/Pretendard-Regular.ttf',
-//       weight: '400',
-//       style: 'normal',
-//     },
-//   ],
-//   display: 'swap',
-//   variable: '--font-pretendard',
-// });
+const pretendard = localFont({
+  src: [
+    // {
+    //   path: '../../public/fonts/Pretendard-Black.subset.woff2',
+    //   weight: '900',
+    //   style: 'normal',
+    // },
+    // {
+    //   path: '../../public/fonts/Pretendard-ExtraBold.subset.woff2',
+    //   weight: '800',
+    //   style: 'normal',
+    // },
+    {
+      path: '../../public/fonts/Pretendard-Bold.subset.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    // {
+    //   path: '../../public/fonts/Pretendard-SemiBold.subset.woff2',
+    //   weight: '600',
+    //   style: 'normal',
+    // },
+    // {
+    //   path: '../../public/fonts/Pretendard-Medium.subset.woff2',
+    //   weight: '500',
+    //   style: 'normal',
+    // },
+    {
+      path: '../../public/fonts/Pretendard-Regular.subset.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    // {
+    //   path: '../../public/fonts/Pretendard-Light.subset.woff2',
+    //   weight: '300',
+    //   style: 'normal',
+    // },
+    // {
+    //   path: '../../public/fonts/Pretendard-ExtraLight.subset.woff2',
+    //   weight: '200',
+    //   style: 'normal',
+    // },
+    // {
+    //   path: '../../public/fonts/Pretendard-Thin.subset.woff2',
+    //   weight: '100',
+    //   style: 'normal',
+    // },
+  ],
+  variable: '--font-pretendard',
+});
 
 export default function RootLayout({
   children,
@@ -37,15 +71,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <head>
+      <head>
+        {/* <link
+          rel="preconnect"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web"
+        />
         <link
           rel="stylesheet"
           as="style"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-        />
-      </head> */}
-      {/* <body className={`${pretendard.variable} antialiased`}>{children}</body> */}
-      <body>{children}</body>
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        /> */}
+      </head>
+      <body className={`${pretendard.variable} antialiased`}>{children}</body>
+      {/* <body>{children}</body> */}
     </html>
   );
 }
