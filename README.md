@@ -40,7 +40,7 @@ Pretendard, 양진체
 | [로컬 폰트] 양진체.otf + localFont | X | 4.7s | 1.2s |
 | [웹폰트] 양진체.woff + preload | X | 4.5s | 0.8s |
 | [웹폰트] 양진체.woff + `@import` | X | 4.5s | 0.8s |
-| [로컬 폰트] 양진체.woff2 + localFont [(폰트 변환 사이트 활용)](https://transfonter.org/) | X | 3.0s | 0.8s |
+| **[로컬 폰트] 양진체.woff2 + localFont** [(폰트 변환 사이트 활용)](https://transfonter.org/) | **X** | **3.0s** | **0.8s** |
 
 # 📌 결론
 
@@ -50,6 +50,7 @@ Pretendard, 양진체
   - 이때, 9개의 폰트 굵기가 모두 필요하다면 **Variable.woff2 + localFont**
 - FOUT이 발생하는 것이 상관 없다면, **가변 웹폰트(pretendardvariable.min.css) **
 - Pretendard는 폰트 변환 사이트를 통한 변환이 의미가 없음
+- hydration이나 Client 컴포넌트가 많은 경우, 또는 설치한 라이브러리가 많은 경우, 번들 사이즈는 커진다. 이런 경우, 가변 웹폰트보다 서브셋 로컬 폰트의 성능이 더 좋을 수 있다.
 
 ## Pretendard가 아닌 경우 (like 양진체) : `.woff2` 로컬 폰트
 - 확장자 우선순위 : `subset.woff2` > `subset.woff` > `.woff2` > `.woff` > `.otf` > `.ttf`
@@ -57,6 +58,7 @@ Pretendard, 양진체
 - 변환하고 싶지 않은데 로컬 폰트는 `.otf`/`.ttf`만 제공하고 웹 폰트는 `.woff`/`.woff2`를 제공하는 경우, 웹폰트 선택
 - 모든 두께를 전부 사용할 경우 : 가변 폰트 (제공하는 경우)
 - 서너 개 이하로만 사용할 경우 : 필요한 폰트만 두께별로 설치
+- Next.js의 localFont는 기본적으로 `<link rel="preload"/>` 최적화를 지원한다.
 - 물론 개인의 결론일 뿐 상황이나 기획에 따라 선택해야 하는 방법은 다를 수 있음
 
 ## 웹폰트를 사용해야 할 때 `<link rel="preload"/>` vs `@import`
